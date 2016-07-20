@@ -1,0 +1,43 @@
+<!-- Copyright 2016 Palm Stone Games, Inc. All rights reserved. -->
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="changeme-adder">
+	<template>
+		<style>
+		:host {
+			display: block;
+			margin-bottom: 2rem;
+		}
+		paper-input {
+			display: inline-block;
+		}
+		#error {
+			color: #FF0000;
+		}
+		</style>
+
+		<h3>Polymer Template</h3>
+		<h4>Adding Service</h4>
+		<div id="error">
+			{{ error }}
+		</div>
+
+		<paper-button raised on-click="create">New</paper-button>
+		<div id="addends">
+			<template is="dom-repeat" items="{{ addends }}">
+				<div>
+					<paper-input value="{{ item }}"></paper-input>
+					<paper-button on-click="delete" data-index$="{{ index }}">Delete</paper-button>
+				</div>
+			</template>
+		</div>
+		<paper-button raised on-click="submit">Submit</paper-button>
+
+		<div id="sum">
+			Sum: {{ computeSum(sum) }}
+		</div>
+	</template>
+	<script>PolymerGo("changeme-adder");</script>
+</dom-module>

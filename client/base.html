@@ -1,0 +1,37 @@
+<!-- Copyright 2016 Palm Stone Games, Inc. All rights reserved. -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Polymer-Template</title>
+
+	<!-- build:js /main.min.js -->
+	<script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="/client.js"></script>
+	<!-- endbuild-->
+
+	<link rel="import" href="/elements/elements.html">
+
+	<style is="custom-style">
+		#content > * {
+			display: none;
+		}
+
+		#content > [active] {
+			display: block;
+		}
+	</style>
+</head>
+
+<body unresolved>
+	<template id="tmpl-base" is="dom-bind-go">
+		<a href="/" on-click="handleAnchorClick">Help</a> | <a href="/adder" on-click="handleAnchorClick">Adder</a>
+		<div id="content">
+			<changeme-adder active$="{{ computeIsActive('/adder', model.route) }}"></changeme-adder>
+			<changeme-help active$="{{ computeIsActive('/', model.route) }}"></changeme-help>
+		</div>
+	</template>
+</body>
+</html>
